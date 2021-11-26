@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ProfHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 pb-2 pt-2 h1 ">ProfHub</span>
+    </nav>
+
+</head>
+<body>
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+
+    </div>
+
+    <div class="col-8 m-auto pt-2 pb-2">
+        <a href="/forms" class="btn btn-success"> + Aluno </a>
+    </div>
+
+
+    <div class="col-8 m-auto pt-4 pb-2 text-center ">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome do Aluno</th>
+                <th scope="col">Nível</th>
+                <th scope="col">Aulas</th>
+                <th scope="col">Horário</th>
+                <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for dbs in db %}
+              <tr>
+                  <th>{{dbs.id}}</th>
+                  <td>{{dbs.nome}}</td>
+                  <td>{{dbs.nivel}}</td>
+                  <td>{{dbs.semana}}</td>
+                  <td>{{dbs.horario}}</td>
+                  
+                  
+                  <td>
+                      <a href="/view/{{dbs.id}}/" class="btn btn-dark">Visualizar</a>
+                      <a href="/edit/{{dbs.id}}/" class="btn btn-primary">Editar</a>
+                      <a href="/delete/{{dbs.id}}/" class="btn btn-danger btnDel">Deletar</a>
+                  </td>
+              </tr>
+          {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+   
+    {% load static %}
+    <script src="{% static 'javascript.js' %}"></script>
+
+</body>
+</html>
